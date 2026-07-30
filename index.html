@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Konexus Strategy Insights publishes concise notes on strategy execution, performance systems, operating models, and business transformation.">
+  <meta name="theme-color" content="#10120f">
+  <title>The Execution Brief | Konexus Strategy Insights</title>
+
+  <style>
+    :root {
+      --ink: #10120f;
+      --ink-2: #161914;
+      --ink-3: #1d211a;
+      --ink-4: #262b22;
+      --paper: #f3efe6;
+      --paper-soft: rgba(243, 239, 230, 0.70);
+      --paper-faint: rgba(243, 239, 230, 0.12);
+      --accent: #c2a56f;
+      --accent-strong: #d1b780;
+      --accent-soft: rgba(194, 165, 111, 0.17);
+      --sage: #8c9882;
+      --rule: rgba(243, 239, 230, 0.10);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 350;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitchTiles'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--ink);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(194, 165, 111, 0.42);
+      border-radius: 999px;
+    }
+
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.35rem 5.5vw;
+      border-bottom: 1px solid transparent;
+      transition: background 0.45s var(--ease), border-color 0.45s var(--ease), padding 0.35s var(--ease);
+    }
+
+    #nav.scrolled {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: rgba(16, 18, 15, 0.93);
+      backdrop-filter: blur(18px);
+      border-color: var(--rule);
+    }
+
+    .nav-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.02rem;
+      letter-spacing: 0.045em;
+      white-space: nowrap;
+    }
+
+    .nav-logo sup {
+      margin-left: 0.46em;
+      color: var(--accent);
+      font-family: Inter, ui-sans-serif, sans-serif;
+      font-size: 0.42em;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      vertical-align: super;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--paper-soft);
+      font-size: 0.65rem;
+      font-weight: 550;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--paper);
+      padding: 0.62rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-wrap {
+      padding: 8.5rem 5.5vw;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.35rem;
+      color: var(--accent);
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    h2 {
+      margin-bottom: 2.2rem;
+      font-size: clamp(2rem, 4vw, 3.45rem);
+      line-height: 1.09;
+      letter-spacing: -0.024em;
+    }
+
+    h2 em, h1 em {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .body-copy {
+      max-width: 720px;
+      color: var(--paper-soft);
+      font-size: 0.98rem;
+      line-height: 1.9;
+    }
+
+    .body-copy + .body-copy {
+      margin-top: 1.2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 46px;
+      padding: 0.78rem 1.55rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.64rem;
+      font-weight: 650;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      transition: transform 0.28s var(--ease), background 0.28s var(--ease), color 0.28s var(--ease), border-color 0.28s var(--ease);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .button.primary:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      border-color: rgba(243, 239, 230, 0.24);
+      color: var(--paper);
+      background: transparent;
+    }
+
+    .button.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .button.arrow::after {
+      content: "→";
+      transition: transform 0.25s ease;
+    }
+
+    .button.arrow:hover::after {
+      transform: translateX(4px);
+    }
+
+    #hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 7rem 5.5vw 4rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 78% 70% at 78% 37%, rgba(140, 152, 130, 0.12) 0%, transparent 64%),
+        radial-gradient(ellipse 52% 58% at 20% 88%, rgba(194, 165, 111, 0.07) 0%, transparent 60%),
+        linear-gradient(157deg, #10120f 0%, #171a14 46%, #10120f 100%);
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, transparent 0, transparent 119px, rgba(194, 165, 111, 0.035) 119px, rgba(194, 165, 111, 0.035) 120px),
+        repeating-linear-gradient(180deg, transparent 0, transparent 79px, rgba(243, 239, 230, 0.022) 79px, rgba(243, 239, 230, 0.022) 80px);
+      mask-image: radial-gradient(ellipse 66% 88% at 70% 38%, black 8%, transparent 76%);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      right: -8%;
+      top: 48%;
+      width: min(52vw, 720px);
+      aspect-ratio: 1;
+      transform: translateY(-50%);
+      border: 1px solid rgba(194, 165, 111, 0.09);
+      border-radius: 50%;
+    }
+
+    .hero-orbit::before, .hero-orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(140, 152, 130, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero-orbit::before {
+      inset: 12%;
+    }
+
+    .hero-orbit::after {
+      inset: 31%;
+      background: radial-gradient(circle, rgba(194, 165, 111, 0.08), transparent 68%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+    }
+
+    .hero-eye {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 2.1rem;
+      color: var(--accent);
+      font-size: 0.63rem;
+      font-weight: 650;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: rise 0.9s 0.18s var(--ease) forwards;
+    }
+
+    .hero-eye::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 2rem;
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      line-height: 0.99;
+      letter-spacing: -0.044em;
+      opacity: 0;
+      animation: rise 1s 0.31s var(--ease) forwards;
+    }
+
+    .hero-sub {
+      max-width: 650px;
+      margin-bottom: 2.7rem;
+      color: var(--paper-soft);
+      font-size: 1.01rem;
+      line-height: 1.9;
+      opacity: 0;
+      animation: rise 1s 0.45s var(--ease) forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      opacity: 0;
+      animation: rise 1s 0.58s var(--ease) forwards;
+    }
+
+    .hero-note {
+      position: absolute;
+      z-index: 2;
+      left: 5.5vw;
+      bottom: 2.15rem;
+      color: rgba(243, 239, 230, 0.34);
+      font-size: 0.58rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    #latest {
+      background: var(--ink-2);
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 7rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .article-list {
+      border-top: 1px solid var(--rule);
+    }
+
+    .article-row {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.25s ease, transform 0.25s var(--ease);
+    }
+
+    .article-row:hover {
+      transform: translateX(4px);
+    }
+
+    .article-row:hover h3 {
+      color: var(--accent);
+    }
+
+    .article-meta {
+      color: var(--accent);
+      font-size: 0.62rem;
+      font-weight: 650;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .article-row h3 {
+      margin-bottom: 0.45rem;
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      line-height: 1.22;
+      transition: color 0.25s ease;
+    }
+
+    .article-row p {
+      max-width: 720px;
+      color: var(--paper-soft);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .article-arrow {
+      color: var(--accent);
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    #categories {
+      background: var(--ink-3);
+      border-top: 1px solid var(--rule);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .category-card {
+      position: relative;
+      min-height: 270px;
+      padding: 2.5rem 2.25rem;
+      background: var(--ink-3);
+      overflow: hidden;
+      transition: background 0.35s ease;
+    }
+
+    .category-card:hover {
+      background: var(--ink-4);
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 2px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.45s var(--ease);
+    }
+
+    .category-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .category-kicker {
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      font-size: 0.58rem;
+      font-weight: 650;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .category-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    .category-card p {
+      color: var(--paper-soft);
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    #standard {
+      background: var(--ink-2);
+      border-top: 1px solid var(--rule);
+    }
+
+    .standard-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 7rem;
+      align-items: start;
+    }
+
+    .standard-panel {
+      padding: 3rem;
+      border: 1px solid rgba(194, 165, 111, 0.17);
+      background:
+        radial-gradient(circle at 84% 15%, rgba(194, 165, 111, 0.12), transparent 37%),
+        linear-gradient(145deg, #22261e 0%, #181b16 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .standard-panel-title {
+      margin-bottom: 1.4rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      line-height: 1.12;
+    }
+
+    .principles {
+      border-top: 1px solid var(--rule);
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 1.3rem;
+      padding: 1.55rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .principle-number {
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+    }
+
+    .principle h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+    }
+
+    .principle p {
+      color: var(--paper-soft);
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    #contact {
+      background: var(--ink);
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 7rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      padding: 2.6rem;
+      border: 1px solid var(--rule);
+      background: var(--ink-2);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 1.4rem;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-row:first-child {
+      padding-top: 0;
+    }
+
+    .contact-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .contact-label {
+      color: var(--accent);
+      font-size: 0.58rem;
+      font-weight: 650;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      color: var(--paper-soft);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .contact-value a {
+      color: var(--paper);
+      border-bottom: 1px solid rgba(194, 165, 111, 0.34);
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-value a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .notice {
+      margin-top: 2rem;
+      padding: 1.2rem 1.35rem;
+      border-left: 2px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--paper-soft);
+      font-size: 0.82rem;
+      line-height: 1.75;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 2.4rem 5.5vw;
+      border-top: 1px solid var(--rule);
+      background: var(--ink);
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--paper-soft);
+      font-size: 0.88rem;
+      letter-spacing: 0.025em;
+    }
+
+    .footer-brand em {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.4rem;
+      color: rgba(243, 239, 230, 0.45);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 1050px) {
+      .section-intro,
+      .standard-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3.8rem;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .article-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      #nav {
+        padding: 1rem 5vw;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0.7rem 5vw 1.15rem;
+        background: rgba(16, 18, 15, 0.98);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li,
+      .nav-links a {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem 0;
+      }
+
+      .section-wrap {
+        padding: 6.5rem 5vw;
+      }
+
+      #hero {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 4.7rem);
+      }
+
+      .hero-orbit {
+        right: -45%;
+        width: 95vw;
+      }
+
+      .hero-note {
+        left: 5vw;
+      }
+
+      .standard-panel {
+        padding: 2.25rem;
+      }
+
+      .principle,
+      .contact-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav" aria-label="Primary navigation">
+    <a href="#hero" class="nav-logo" aria-label="Konexus Strategy Insights homepage">Konexus Strategy<sup>Insights</sup></a>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#latest">Latest</a></li>
+      <li><a href="#categories">Topics</a></li>
+      <li><a href="#standard">Standard</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://konexusstrategy.com/">Main site</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-orbit" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-eye">Strategy Execution · Performance Systems · Transformation</div>
+        <h1>The Execution<br><em>Brief.</em></h1>
+        <p class="hero-sub">
+          Concise business notes from Konexus Strategy on how organizations convert strategic intent into accountable execution, operating discipline, and measurable performance.
+        </p>
+        <div class="hero-actions">
+          <a href="#latest" class="button primary arrow">Read latest notes</a>
+          <a href="#categories" class="button secondary">Explore topics</a>
+          <a href="https://konexusstrategy.com/" class="button secondary">Main site</a>
+        </div>
+      </div>
+
+      <div class="hero-note">Independent business analysis · Konexus Strategy LLC</div>
+    </section>
+
+    <section id="latest">
+      <div class="section-wrap">
+        <div class="section-intro">
+          <div>
+            <div class="eyebrow reveal">Latest notes</div>
+            <h2 class="reveal">Short analysis for <em>practical execution.</em></h2>
+          </div>
+          <p class="body-copy reveal">
+            This page collects applied notes, company observations, and short execution briefs. Each article is written to clarify a business problem, identify an execution mechanism, and draw practical implications for managers and organizations.
+          </p>
+        </div>
+
+        <div class="article-list reveal" aria-label="Article list">
+          <a class="article-row" href="articles/why-strategy-execution-fails.html">
+            <div class="article-meta">Strategy Execution</div>
+            <div>
+              <h3>Why Strategy Execution Fails Even When the Strategy Is Sound</h3>
+              <p>A short note on priorities, governance, accountability, and performance discipline.</p>
+            </div>
+            <div class="article-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="article-row" href="articles/coca-cola-strategy-execution.html">
+            <div class="article-meta">Case Note</div>
+            <div>
+              <h3>How Coca-Cola Turns Global Strategy into Local Execution</h3>
+              <p>An independent public-evidence analysis of scale, bottling systems, route-to-market discipline, and execution architecture.</p>
+            </div>
+            <div class="article-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="article-row" href="articles/toyota-execution-system.html">
+            <div class="article-meta">Operating System</div>
+            <div>
+              <h3>Toyota and the Discipline of Continuous Execution</h3>
+              <p>What strategy execution can learn from operating routines, capability building, learning systems, and process discipline.</p>
+            </div>
+            <div class="article-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="article-row" href="articles/kpi-performance-discipline.html">
+            <div class="article-meta">Performance</div>
+            <div>
+              <h3>Why KPIs Often Fail to Improve Performance</h3>
+              <p>A practical note on weak measurement systems, activity metrics, ownership gaps, and review cadence.</p>
+            </div>
+            <div class="article-arrow" aria-hidden="true">→</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="section-wrap">
+        <div class="eyebrow reveal">Topics</div>
+        <h2 class="reveal">A focused lens on <em>execution and performance.</em></h2>
+
+        <div class="category-grid reveal">
+          <article class="category-card">
+            <div class="category-kicker">01 · Execution</div>
+            <h3>Strategy Execution</h3>
+            <p>Notes on how organizations translate strategic direction into initiatives, governance, accountability, operating routines, and results.</p>
+          </article>
+
+          <article class="category-card">
+            <div class="category-kicker">02 · Performance</div>
+            <h3>Performance Systems</h3>
+            <p>Analysis of KPIs, management dashboards, operating cadences, decision rights, and performance architecture.</p>
+          </article>
+
+          <article class="category-card">
+            <div class="category-kicker">03 · Transformation</div>
+            <h3>Business Transformation</h3>
+            <p>Short perspectives on capability building, transformation roadmaps, initiative portfolios, operating models, and organizational adaptation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="standard">
+      <div class="section-wrap">
+        <div class="standard-layout">
+          <div class="standard-panel reveal">
+            <div class="eyebrow">Editorial standard</div>
+            <div class="standard-panel-title">Clear claims. Careful evidence. Practical implications.</div>
+            <p class="body-copy">
+              Konexus Strategy Insights is designed as an applied business analysis platform. The goal is not to create noise, but to publish concise and useful observations about strategy execution, performance systems, and transformation.
+            </p>
+          </div>
+
+          <div class="principles">
+            <div class="principle reveal">
+              <div class="principle-number">01</div>
+              <div><h3>Independent analysis</h3><p>Company notes are based on public information unless expressly stated otherwise. No article implies confidential access or a client relationship.</p></div>
+            </div>
+            <div class="principle reveal">
+              <div class="principle-number">02</div>
+              <div><h3>Managerial relevance</h3><p>Each note should identify a concrete strategic or operational issue and translate it into useful implications for decision-makers.</p></div>
+            </div>
+            <div class="principle reveal">
+              <div class="principle-number">03</div>
+              <div><h3>No exaggerated claims</h3><p>Insights are provided for general business information and should not be treated as legal, tax, accounting, investment, or regulated financial advice.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-wrap">
+        <div class="contact-layout">
+          <div>
+            <div class="eyebrow reveal">Contact</div>
+            <h2 class="reveal">Start with a <em>defined question.</em></h2>
+            <p class="body-copy reveal">
+              For strategic advisory, transformation support, collaboration, publication, or speaking inquiries, contact Konexus Strategy directly by email.
+            </p>
+            <div style="margin-top: 2.2rem" class="reveal">
+              <a href="mailto:contact@konexusstrategy.com" class="button primary arrow">Email Konexus Strategy</a>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div class="contact-row">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:contact@konexusstrategy.com">contact@konexusstrategy.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Main site</div>
+              <div class="contact-value"><a href="https://konexusstrategy.com/">konexusstrategy.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Publisher</div>
+              <div class="contact-value">Konexus Strategy LLC<br>Independent business analysis and strategy notes.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice reveal">
+          This static page does not intentionally deploy analytics or advertising cookies. Hosting providers may process standard technical logs required to deliver and secure the website. A professional relationship begins only through a written engagement agreement. No specific business result is guaranteed.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">Konexus <em>Strategy</em> Insights — The Execution Brief</div>
+    <div class="footer-links">
+      <a href="https://konexusstrategy.com/">Main site</a>
+      <a href="mailto:contact@konexusstrategy.com">Contact</a>
+      <span>© <span id="year"></span></span>
+    </div>
+  </footer>
+
+  <!--
+    GITHUB PAGES SETUP:
+    1. Rename this file to index.html before uploading it to the konexus-insights repository.
+    2. Create a CNAME file with one line: insights.konexusstrategy.com
+    3. Add article files inside an /articles/ folder.
+    4. If analytics, newsletter tools, embedded media, or forms are added later, update the privacy notice.
+  -->
+
+  <script>
+    const nav = document.getElementById('nav');
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 45);
+    }, { passive: true });
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
